@@ -1,0 +1,17 @@
+void sortColors(vector<int>& nums) {
+        int low = 0, curr = 0, high = nums.size()-1;
+        while(curr <= high){
+            if(nums[curr] == 0){
+                swap(nums[low], nums[curr]);
+                low++;
+                curr++;
+            }
+            else if(nums[curr] == 1){
+                curr++;
+            }
+            else{
+                swap(nums[curr], nums[high]);
+                high--;
+            }
+        }
+    }

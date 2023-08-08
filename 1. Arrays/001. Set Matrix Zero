@@ -1,0 +1,27 @@
+void setZeroes(vector<vector<int>>& matrix) {
+        unordered_map<int,bool> cols;
+        unordered_map<int,bool> rows;
+        int row = matrix.size();
+        int col = matrix[0].size();
+        for(int i =0; i<row; i++){
+            for(int j =0; j< col; j++){
+                if(matrix[i][j]==0){
+                if(!cols[j]){
+                    cols[j]=true;
+                }
+                if(!rows[i]){
+                    rows[i]=true;
+                }
+                }
+            }
+        }
+        for(int i =0; i<row; i++){
+            for(int j =0; j< col; j++)
+            {
+                if(rows[i]||cols[j])
+                {
+                    matrix[i][j]=0;
+                }
+            }
+        }
+    }

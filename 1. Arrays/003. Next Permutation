@@ -1,0 +1,23 @@
+void nextPermutation(vector<int>& nums) {
+        int n = nums.size();
+        int bp = -1;
+        for(int i=0;i<n-1;i++){
+            if(nums[i]<nums[i+1])
+                bp = i;
+        }
+        cout<<bp<<endl;
+        if(bp == -1){
+            reverse(nums.begin(),nums.end());
+        }else{
+            int correct1 = INT_MAX;
+            int c1 = -1;
+            for(int i = n-1;i>bp;i--){
+                if(correct1>nums[i] && nums[i]>nums[bp]){
+                    correct1 = nums[i];
+                    c1 = i;
+                }
+            }
+            swap(nums[c1],nums[bp]);
+            reverse(nums.begin()+bp+1,nums.end());
+        }
+    }

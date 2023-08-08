@@ -1,0 +1,12 @@
+int maxSubArray(vector<int>& nums) {
+        long long int sum=0;
+        long long int maxi = LONG_MIN;
+        for(int i:nums){
+            sum+=i;
+            if(sum > maxi)
+                maxi=sum;
+            if(sum<0)
+                sum=0;
+        }
+        return maxi;
+    }
